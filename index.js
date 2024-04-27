@@ -35,6 +35,12 @@ async function run() {
 
     const productCollection = client.db("ArtCraftStore").collection("Crafts");
 
+    app.get('/craftSection',async(req,res)=>{
+        const cursor=productCollection.find()
+        const result=await cursor.toArray()
+        res.send(result)
+    })
+
     app.post("/addArt&Craft", async (req, res) => {
         console.log(req.body);
         const result = await productCollection.insertOne(req.body);
