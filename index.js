@@ -33,10 +33,10 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
 
-    const productCollection = client.db("ArtCraftStore").collection("Crafts");
+    const craftCollection = client.db("ArtCraftStore").collection("Crafts");
 
     app.get('/craftSection',async(req,res)=>{
-        const cursor=productCollection.find()
+        const cursor=craftCollection.find()
         const result=await cursor.toArray()
         res.send(result)
     })
@@ -44,13 +44,13 @@ async function run() {
     app.get('/craftSection/:id', async (req, res) => {
         const id = req.params.id;
         const query = { _id: new ObjectId(id) }
-        const result = await productCollection.findOne(query);
+        const result = await craftCollection.findOne(query);
         res.send(result);
     })
 
     app.post("/addArt&Craft", async (req, res) => {
         console.log(req.body);
-        const result = await productCollection.insertOne(req.body);
+        const result = await craftCollection.insertOne(req.body);
         console.log(result);
         res.send(result)
       })
