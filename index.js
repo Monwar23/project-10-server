@@ -70,6 +70,11 @@ async function run() {
         res.send(result)
       })
 
+      app.put('/craftSection/:id',async(req,res)=>{
+       
+        
+      })
+
       // deleted data to database
 
       app.delete("/craftSection/:id",async(req,res)=>{
