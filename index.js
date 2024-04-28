@@ -74,7 +74,8 @@ async function run() {
         const id=req.params.id
         const filter={_id: new ObjectId(id)}
         const options={upsert:true}
-        const updateCraft={
+        const updateCraft=req.body
+        const craft={
           $set:{
             photo:updateCraft.photo,
         item_name:updateCraft.item_name,
@@ -87,6 +88,8 @@ async function run() {
         stock_status:updateCraft.stock_status
           }
         }
+        const result=await craftCollection.updateOne(filter,craft,options)
+        res.send(result)
       })
 
       // deleted data to database
