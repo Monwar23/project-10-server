@@ -35,11 +35,15 @@ async function run() {
 
     const craftCollection = client.db("ArtCraftStore").collection("Crafts");
 
+    // get all data
+
     app.get('/craftSection',async(req,res)=>{
         const cursor=craftCollection.find()
         const result=await cursor.toArray()
         res.send(result)
     })
+
+    // get data by id
 
     app.get('/craftSection/:id', async (req, res) => {
         const id = req.params.id;
@@ -47,6 +51,7 @@ async function run() {
         const result = await craftCollection.findOne(query);
         res.send(result);
     })
+    // get data by email
 
     app.get("/craftSection/email/:email", async (req, res) => {
         const email = req.params.email;
@@ -54,7 +59,9 @@ async function run() {
         const result = await craftCollection.find(query).toArray();
         res.send(result);
     });
+
     
+    // insert data to database
 
     app.post("/addArt&Craft", async (req, res) => {
         console.log(req.body);
@@ -62,6 +69,8 @@ async function run() {
         console.log(result);
         res.send(result)
       })
+
+      // deleted data to database
 
       app.delete("/craftSection/:id",async(req,res)=>{
         const id=req.params.id;
