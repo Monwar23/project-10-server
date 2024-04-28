@@ -41,8 +41,6 @@ async function run() {
         res.send(result)
     })
 
-
-
     app.get('/craftSection/:id', async (req, res) => {
         const id = req.params.id;
         const query = { _id: new ObjectId(id) }
@@ -65,7 +63,9 @@ async function run() {
         res.send(result)
       })
 
-
+      app.delete("/craftSection/:id",async(req,res)=>{
+        
+      })
 
 
 
