@@ -35,12 +35,22 @@ async function run() {
 
     const craftCollection = client.db("ArtCraftStore").collection("Crafts");
 
+    const artCollection = client.db("ArtCraftStore").collection("Arts");
+
+
+
     // get all data
 
     app.get('/craftSection',async(req,res)=>{
         const cursor=craftCollection.find()
         const result=await cursor.toArray()
         res.send(result)
+    })
+
+    app.get('/artSection',async(req,res)=>{
+      const cursor=artCollection.find()
+      const result=await cursor.toArray()
+      res.send(result)
     })
 
     // get data by id
