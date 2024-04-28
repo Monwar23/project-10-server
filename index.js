@@ -70,6 +70,13 @@ async function run() {
         res.send(result);
     });
 
+    app.get("/craftSection/subcategory_name/:subcategory_name", async (req, res) => {
+        const subcategory_name = req.params.subcategory_name;
+        const query = { subcategory_name: subcategory_name };
+        const result = await craftCollection.find(query).toArray();
+        res.send(result);
+    });
+
     
     // insert data to database
 
