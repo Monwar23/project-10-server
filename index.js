@@ -74,7 +74,19 @@ async function run() {
         const id=req.params.id
         const filter={_id: new ObjectId(id)}
         const options={upsert:true}
-        
+        const updateCraft={
+          $set:{
+            photo:updateCraft.photo,
+        item_name:updateCraft.item_name,
+        subcategory_name:updateCraft.subcategory_name,
+        short_description:updateCraft.short_description,
+        price:updateCraft.price,
+        rating:updateCraft.rating,
+        customization:updateCraft.customization,
+        processing_time:updateCraft.processing_time,
+        stock_status:updateCraft.stock_status
+          }
+        }
       })
 
       // deleted data to database
