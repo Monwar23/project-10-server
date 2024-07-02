@@ -6,6 +6,6 @@ Run server site after Client Side [client-side](https://github.com/Monwar23/proj
 - npm install
 - create .env file
 - update .env to :
-  DB_USER=Your Mongodb user 
+  DB_USER=Your Mongodb user <br/>
   DB_PASS=Your Mongodb password
 - nodemon index.js and run this
