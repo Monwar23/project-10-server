@@ -1,7 +1,7 @@
 # Art and Craft Management Platform-ArtHive
 
 ## Live URL: https://arthive.netlify.app/
-Run server site after Client Side [client-side](https://github.com/Monwar23/project-10-client)
+Run server site after  [client-side](https://github.com/Monwar23/project-10-client)
 - git clone
 - npm install
 - create .env file
